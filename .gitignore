@@ -5,3 +5,14 @@
 /Scraping_part
 /sneakers-dataset
 /splits
+
+
+venv/
+__pycache__/
+*.pyc
+node_modules/
+.env
+uploads/
+npm-debug.log
+dist/
+build/

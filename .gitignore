@@ -1,18 +1,28 @@
-/tfenv
-/Original-or-Fake-Shoes-9
-/footwear_crops
-/.vscode
-/Scraping_part
-/sneakers-dataset
-/splits
-
-
+# Python
 venv/
 __pycache__/
 *.pyc
-node_modules/
-.env
+
+# React
+frontend/node_modules/
+frontend/build/
+
+# Datasets
+Scraping_part/
+sneakers-dataset/
+splits/
+goat_data/
+Original-or-Fake-Shoes-9/
+footwear_crops/
+
+# AI models
+ai/*.pt
+ai/*.pth
+ai/*.cbm
+
+# Misc
 uploads/
 npm-debug.log
-dist/
-build/
+*.log
+.DS_Store
+.env

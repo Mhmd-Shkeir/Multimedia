@@ -8,7 +8,8 @@ import torch.nn as nn
 from .utils import load_image
 
 BASE_DIR = Path(__file__).resolve().parent
-MODEL_PATH = BASE_DIR / "best_resnet50_sneakers.pt"
+# Model lives at repo root; class indices sit next to this file
+MODEL_PATH = BASE_DIR.parent / "best_resnet50_sneakers.pt"
 CLASS_INDICES_PATH = BASE_DIR / "class_indices.json"
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

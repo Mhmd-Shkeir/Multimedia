@@ -6,9 +6,13 @@ from catboost import CatBoostRegressor
 from .feature_extractor import get_features_for_slug
 
 BASE_DIR = Path(__file__).resolve().parent
-PRICE_MODEL_PATH = BASE_DIR / "sneaker_price_model.cbm"
+
+# Model file sits at repo root (sneaker_price_model.cbm)
+PRICE_MODEL_PATH = BASE_DIR.parent / "sneaker_price_model.cbm"
 
 _price_model = CatBoostRegressor()
+if not PRICE_MODEL_PATH.exists():
+    raise FileNotFoundError(f"Price model missing at {PRICE_MODEL_PATH}")
 _price_model.load_model(str(PRICE_MODEL_PATH))
 
 FEATURE_COLS = [

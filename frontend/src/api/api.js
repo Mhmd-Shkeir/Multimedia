@@ -1,23 +1,26 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://127.0.0.1:5000", // Flask backend
+  baseURL: "http://127.0.0.1:5000",
 });
 
-// Upload image → predict sneaker info
+// =======================
+// IMAGE CLASSIFICATION
+// =======================
 export const uploadImage = (formData) =>
   API.post("/predict", formData, {
     headers: { "Content-Type": "multipart/form-data" },
   });
 
-// Add to inventory
-export const addInventory = (data) =>
-  API.post("/inventory/add", data);
+// =======================
+// INVENTORY
+// =======================
+export const addInventory = (data) => API.post("/add-to-inventory", data);
 
-// List items in inventory
-export const listInventory = () =>
-  API.get("/inventory/list");
+export const listInventory = () => API.get("/inventory");
 
-// Fetch image from backend
-export const getImageUrl = (id) =>
-  `http://127.0.0.1:5000/inventory/image/${id}`;
+// =======================
+// IMAGE PIPELINE (GRIDFS)
+// =======================
+export const getImageUrl = (imageId) =>
+  `http://127.0.0.1:5000/image/${imageId}`;

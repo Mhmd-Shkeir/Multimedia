@@ -20,7 +20,6 @@ def get_slug_for_class(class_name: str) -> str:
     if not candidates:
         raise FileNotFoundError(f"No slug folders in {class_dir}")
 
-    # deterministic: choose first sorted, or use random.choice(candidates)
+    # deterministic: always pick the first sorted slug to keep predictions stable
     candidates.sort()
-    slug = random.choice(candidates)
-    return slug
+    return candidates[0]
